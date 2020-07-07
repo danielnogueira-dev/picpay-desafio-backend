@@ -9,13 +9,7 @@ apache 2.4
 
 laravel 6.18.8
 
-composer 1.10.7
-
 mysql 8.0.20
-
-Mongo DB 4.2.8
-
-Mongo Express 0.54.0
 
 RabbitMQ 3.8.5
 
@@ -46,16 +40,9 @@ docker inspect [NOME_DO_CONTAINER]
 
 docker inspect web_wallet
 
-# Acessar Mongo Express
-http://localhost:8081
-http://localhost:8082
-
-usuário = root
-
-senha = example
-
 # Ativar Plugin RabbitMQ Management
-acessar container: winpty docker exec -it rabbitmq bash
+acessar container: winpty docker exec -it rabbitmq_core bash
+acessar container: winpty docker exec -it rabbitmq_wallet bash
 
 rodar comando: rabbitmq-plugins enable rabbitmq_management
 
@@ -91,5 +78,5 @@ chmod +x /usr/local/bin/composer
 
 composer
 
-# Instalar MongoDB PHP
-pecl install mongodb
+# Instalar Mysql no PHP
+apt-get install php-mysql
