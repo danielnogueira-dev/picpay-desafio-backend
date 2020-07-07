@@ -10,6 +10,7 @@ class Person extends Model
 {
     protected $table = 'person';
     protected $fillable = [
+        'id',
         'name',
         'document',
         'document_type_id',
@@ -17,7 +18,6 @@ class Person extends Model
     ];
 
     protected $guarded = [
-        'id',
         'created_at',
         'update_at'
     ];
@@ -35,5 +35,10 @@ class Person extends Model
     public function user()
     {
         return $this->hasOne(User::class, 'person_id', 'id');
+    }
+
+    public function account()
+    {
+        return $this->hasOne(Account::class, 'account_id', 'id');
     }
 }

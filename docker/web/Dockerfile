@@ -274,9 +274,27 @@ RUN docker-php-ext-enable sodium
 # MYSQL PDO
 RUN docker-php-ext-install pdo_mysql
 
+# Sockets
+RUN docker-php-ext-install sockets
+
+# Mcrypt
+# RUN docker-php-ext-install libmcrypt-dev
+#RUN apt-get install -y libmcrypt-dev
+
+# Gmp
+#RUN docker-php-ext-install gmp
+
+# pcntl
+RUN docker-php-ext-install pcntl
+
 # GIT
 RUN apt update
 RUN apt-get -y install git
+
+#AMQP
+RUN apt-get install -y librabbitmq-dev
+RUN apt-get install -y libssh-dev
+RUN pecl install amqp
 
 # COMPOSER
 RUN curl -sS https://getcomposer.org/installer | php
